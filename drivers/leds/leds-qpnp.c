@@ -2868,6 +2868,11 @@ static const struct attribute_group led_attr_group = {
 	.attrs = led_attrs,
 };
 
+static struct attribute *rgb_blink_attrs[] = {
+	&dev_attr_rgb_blink.attr,
+	NULL
+};
+
 static struct attribute *pwm_attrs[] = {
 	&dev_attr_pwm_us.attr,
 	NULL
@@ -4253,6 +4258,7 @@ static int qpnp_leds_probe(struct platform_device *pdev)
 
 				if (rgb_sync)
 					rgb_sync->led_data[QPNP_ID_TO_RGB_IDX(led->id)] = led;
+
 			} else if (led->rgb_cfg->pwm_cfg->mode == LPG_MODE) {
 				rc = sysfs_create_group(&led->cdev.dev->kobj,
 					&lpg_attr_group);
