@@ -2879,6 +2879,11 @@ static const struct attribute_group led_attr_group = {
 	.attrs = led_attrs,
 };
 
+static struct attribute *rgb_blink_attrs[] = {
+	&dev_attr_rgb_blink.attr,
+	NULL
+};
+
 static struct attribute *pwm_attrs[] = {
 	&dev_attr_pwm_us.attr,
 	NULL
