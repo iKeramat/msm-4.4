@@ -1,4 +1,4 @@
-/* Copyright (c) 2013-2019, The Linux Foundation. All rights reserved.
+/* Copyright (c) 2013-2018, The Linux Foundation. All rights reserved.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 2 and
@@ -855,9 +855,6 @@ struct vfe_device {
 	/* total bandwidth per vfe */
 	uint64_t total_bandwidth;
 	struct isp_kstate *isp_page;
-
-	/* irq info */
-	uint32_t irq_sof_id;
 };
 
 struct vfe_parent_device {
