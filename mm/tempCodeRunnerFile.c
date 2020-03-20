@@ -1,0 +1,1 @@
+f (unlikely(!pte_same(*pte, entry)))
