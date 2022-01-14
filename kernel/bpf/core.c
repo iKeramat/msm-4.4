@@ -225,11 +225,7 @@ bpf_jit_binary_alloc(unsigned int proglen, u8 **image_ptr,
 	 * random section of illegal instructions.
 	 */
 	size = round_up(proglen + sizeof(*hdr) + 128, PAGE_SIZE);
-#ifdef CONFIG_MODULES
 	hdr = module_alloc(size);
-#else
-	hdr = vmalloc_exec(size);
-#endif
 	if (hdr == NULL)
 		return NULL;
 
@@ -249,11 +245,7 @@ bpf_jit_binary_alloc(unsigned int proglen, u8 **image_ptr,
 
 void bpf_jit_binary_free(struct bpf_binary_header *hdr)
 {
-#ifdef CONFIG_MODULES
 	module_memfree(hdr);
-#else
-	vfree(hdr);
-#endif
 }
 
 static int bpf_jit_blind_insn(const struct bpf_insn *from,
