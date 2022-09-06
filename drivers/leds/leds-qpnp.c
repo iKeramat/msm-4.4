@@ -2893,11 +2893,6 @@ static struct attribute *blink_attrs[] = {
 	NULL
 };
 
-static struct attribute *rgb_blink_attrs[] = {
-	&dev_attr_rgb_blink.attr,
-	NULL
-};
-
 static const struct attribute_group pwm_attr_group = {
 	.attrs = pwm_attrs,
 };
