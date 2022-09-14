@@ -1008,6 +1008,7 @@ retry:
 				 */
 				if (epfile->ep == ep)
 					usb_ep_dequeue(ep->ep, req);
+					wait_for_completion(&done);
 				spin_unlock_irq(&epfile->ffs->eps_lock);
 				ret = -EINTR;
 			} else {
